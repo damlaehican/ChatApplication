@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/settings"
+        android:title="Settings"></item>
+
+    <item android:id="@+id/addImages"
+    android:title="Add Image"></item>
+
+    <item android:id="@+id/addFriend"
+        android:title="Add Friend"></item>
+
+    <item android:id="@+id/logOut"
+        android:title="Log Out"></item>
+
+    <item android:id="@+id/suggest"
+        android:title="Suggest to Friend"></item>
+
+
+
+</menu>
