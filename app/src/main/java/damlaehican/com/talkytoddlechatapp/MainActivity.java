@@ -66,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Failed", Toast.LENGTH_SHORT).show();
                 }
 
-                System.out.println("sa");
 
             }
         });
