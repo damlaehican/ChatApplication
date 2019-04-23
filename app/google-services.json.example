@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "338323380224",
+    "firebase_url": "https://talkytoddlechatapp.firebaseio.com",
+    "project_id": "talkytoddlechatapp",
+    "storage_bucket": "talkytoddlechatapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:338323380224:android:32488bdd93cf738f",
+        "android_client_info": {
+          "package_name": "damlaehican.com.talkytoddlechatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "338323380224-k2jqr1g8j5tkgshaqfoa45urab75jluc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "damlaehican.com.talkytoddlechatapp",
+            "certificate_hash": "521f15c3fceddfe8fd8b71eb73345938468e851c"
+          }
+        },
+        {
+          "client_id": "338323380224-081l81krototq370n3ngjkaqvfv8746u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5YNpzZxu5zod9Mg4eDxqkvMQLG7UuGck"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "338323380224-081l81krototq370n3ngjkaqvfv8746u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

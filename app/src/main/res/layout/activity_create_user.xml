@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateUserActivity"
+    tools:layout_editor_absoluteY="25dp">
+
+    <EditText
+        android:id="@+id/et_username_surname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="133dp"
+        android:ems="10"
+        android:hint="First Name / Surname"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/et_newPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="New Password"
+        android:inputType="textPassword"
+        app:layout_constraintStart_toStartOf="@+id/et_newUserMail"
+        app:layout_constraintTop_toBottomOf="@+id/et_newUserMail" />
+
+    <Button
+        android:id="@+id/btn_signUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="53dp"
+        android:layout_marginEnd="17dp"
+        android:onClick="signUp"
+        android:text="Sign Up"
+        app:layout_constraintEnd_toEndOf="@+id/radioButton_men"
+        app:layout_constraintTop_toBottomOf="@+id/radioButton_women" />
+
+    <EditText
+        android:id="@+id/et_newUserMail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:ems="10"
+        android:hint="Email Adress"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@+id/et_username_surname"
+        app:layout_constraintTop_toBottomOf="@+id/et_username_surname" />
+
+    <RadioButton
+        android:id="@+id/radioButton_women"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:layout_marginEnd="1dp"
+        android:checked="false"
+        android:text="Women"
+        app:layout_constraintBaseline_toBaselineOf="@+id/radioButton_men"
+        app:layout_constraintEnd_toStartOf="@+id/radioButton_men"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <RadioButton
+        android:id="@+id/radioButton_men"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="132dp"
+        android:text="Men"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/radioButton_women"
+        app:layout_constraintTop_toBottomOf="@+id/et_newPassword" />
+
+    <RadioButton
+        android:id="@+id/radioButton_other"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Other"
+        app:layout_constraintBaseline_toBaselineOf="@+id/radioButton_men"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/radioButton_women" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:text="By clicking Sign Up, you agree to our Terms, Data Policy and Cookie Policy. "
+        android:textColor="@android:color/darker_gray"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
