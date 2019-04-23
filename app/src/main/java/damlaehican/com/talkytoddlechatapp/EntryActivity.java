@@ -2,6 +2,7 @@ package damlaehican.com.talkytoddlechatapp;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
@@ -15,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -29,6 +31,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class EntryActivity extends AppCompatActivity {
@@ -40,6 +44,12 @@ public class EntryActivity extends AppCompatActivity {
     DatabaseReference mRef, userRef, mailRef, imageRef;
 
     String friendMail;
+
+    private ListAdapter adapter;
+    private List<Adapter> mListAdapter;
+
+    ListView listViewFriends;
+
 
 
     private StorageReference mStorageRef;
@@ -62,9 +72,11 @@ public class EntryActivity extends AppCompatActivity {
     MenuInflater menuInflater;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_entry);
+
+        mListAdapter =  new ArrayList<>();
 
         myToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(myToolbar);
@@ -79,10 +91,63 @@ public class EntryActivity extends AppCompatActivity {
 
                 FirebaseUser user = firebaseAuth.getCurrentUser();
 
+                if (user == null){
 
-
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                }
             }
         };
+
+        DatabaseReference listRef = FirebaseDatabase.getInstance().getReference("allUsers").child(mAuth.getCurrentUser().getUid());
+        listRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                DataSnapshot dsFriends = dataSnapshot.child("friends");
+                for(DataSnapshot friend : dsFriends.getChildren()){
+
+                    String friendName = friend.getValue(String.class);
+                    System.out.println("Arkadas :" +friendName);
+
+                     mRef.orderByChild("mail").equalTo(friendName)
+                             .addValueEventListener(new ValueEventListener() {
+                                 @Override
+                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                     for(DataSnapshot dsFriendDetail : dataSnapshot.getChildren()){
+                                         Map<String, String > mapFriendDetail = (Map<String, String>)dsFriendDetail.getValue();
+
+                                         String friendPhotoLink = mapFriendDetail.get("userImage");
+
+                                         mListAdapter.add(new Adapter(mapFriendDetail.get("mail"), friendPhotoLink));
+
+
+                                     }
+                                     listViewFriends.invalidateViews();
+
+                                 }
+
+                                 @Override
+                                 public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                 }
+                             });
+
+                     adapter = new ListAdapter(getApplicationContext(), mListAdapter);
+                     listViewFriends = findViewById(R.id.listView_Friends);
+                     listViewFriends.setAdapter(adapter);
+                     listViewFriends.invalidateViews();
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
     }
 
 
@@ -163,6 +228,8 @@ public class EntryActivity extends AppCompatActivity {
 
 
         }else if(item.getItemId() == R.id.logOut){
+
+            mAuth.signOut();
 
         }else if(item.getItemId() == R.id.suggest){
 
