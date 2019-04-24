@@ -14,9 +14,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -138,6 +140,19 @@ public class EntryActivity extends AppCompatActivity {
                      listViewFriends = findViewById(R.id.listView_Friends);
                      listViewFriends.setAdapter(adapter);
                      listViewFriends.invalidateViews();
+
+                     listViewFriends.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                         @Override
+                         public void onItemClick(AdapterView<?> parent, View view, int i, long l) {
+
+                             TextView tvFriendMail = findViewById(R.id.textViewfriendMail);
+
+                             Intent intent = new Intent(getApplicationContext(), ChatActivity.class);
+                             intent.putExtra( "kullaniciMail", tvFriendMail.getText().toString());
+                             startActivity(intent);
+
+                         }
+                     });
                 }
 
             }

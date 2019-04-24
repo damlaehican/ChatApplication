@@ -7,7 +7,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
+
 
 import java.util.List;
 
@@ -25,12 +26,14 @@ public class ListAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
+
         return mAdapterList.size();
     }
 
 
     @Override
     public Object getItem(int i) {
+
         return mAdapterList.get(i);
     }
 
@@ -52,10 +55,8 @@ public class ListAdapter extends BaseAdapter {
 
         tvName.setText(mAdapterList.get(i).getS_name());
 
-        Picasso.with(mContext)
+        Glide.with(mContext)
                 .load(mAdapterList.get(i).getS_image())
-                .resize(50, 50)
-                .centerCrop()
                 .into(imageUser);
 
         return v;
