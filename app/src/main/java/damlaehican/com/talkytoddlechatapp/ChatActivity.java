@@ -18,6 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ChatActivity extends AppCompatActivity {
 
@@ -27,6 +28,11 @@ public class ChatActivity extends AppCompatActivity {
 
     String friendMail, myMail, side1, side2;
     String sides2;
+
+
+    private CustomListAdapter adapter2;
+    private List<CustomChatAdapter> mListAdapter2;
+
 
     ListView listView_messages;
     ArrayList<String> chatList;
@@ -50,7 +56,18 @@ public class ChatActivity extends AppCompatActivity {
 
         msgMainRef = firebaseDatabase.getReference("messaging");
 
+        chatList = new ArrayList<String>();
+        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, chatList);
+
+
+
         //READ MESSAGE
+
+        mListAdapter2 = new ArrayList<>();
+        adapter2 = new CustomListAdapter(getApplicationContext(), mListAdapter2);
+        
+
+
 
 
         if (side1.compareTo(side2) > 0) {
@@ -77,10 +94,10 @@ public class ChatActivity extends AppCompatActivity {
                         String person = chatText.substring(0, chatText.indexOf(":")).trim();
                         if(person.compareTo(myMail) == 0){
 
-                            System.out.println("ben");
+                            System.out.println("Ben");
 
                         }else{
-                            System.out.println("karşı taraf");
+                            System.out.println("Karşı taraf");
                         }
 
 
