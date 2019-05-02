@@ -11,11 +11,12 @@
         android:id="@+id/et_username_surname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="133dp"
+        android:layout_marginTop="148dp"
         android:ems="10"
         android:hint="First Name / Surname"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,12 +35,14 @@
         android:id="@+id/btn_signUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="53dp"
-        android:layout_marginEnd="17dp"
+        android:layout_marginTop="42dp"
         android:onClick="signUp"
         android:text="Sign Up"
-        app:layout_constraintEnd_toEndOf="@+id/radioButton_men"
-        app:layout_constraintTop_toBottomOf="@+id/radioButton_women" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_newPassword" />
+
+
 
     <EditText
         android:id="@+id/et_newUserMail"
@@ -51,38 +54,6 @@
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="@+id/et_username_surname"
         app:layout_constraintTop_toBottomOf="@+id/et_username_surname" />
-
-    <RadioButton
-        android:id="@+id/radioButton_women"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="85dp"
-        android:layout_marginEnd="1dp"
-        android:checked="false"
-        android:text="Women"
-        app:layout_constraintBaseline_toBaselineOf="@+id/radioButton_men"
-        app:layout_constraintEnd_toStartOf="@+id/radioButton_men"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <RadioButton
-        android:id="@+id/radioButton_men"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="132dp"
-        android:text="Men"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/radioButton_women"
-        app:layout_constraintTop_toBottomOf="@+id/et_newPassword" />
-
-    <RadioButton
-        android:id="@+id/radioButton_other"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Other"
-        app:layout_constraintBaseline_toBaselineOf="@+id/radioButton_men"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/radioButton_women" />
 
     <TextView
         android:id="@+id/textView"

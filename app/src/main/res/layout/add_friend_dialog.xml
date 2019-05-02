@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="Add Friend"
+        android:textAlignment="center"
+        android:textColor="#B58DAF"
+        android:textSize="15pt"
+        android:textStyle="bold" />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter mail"
+        android:layout_margin="10px"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+
+        >
+
+        <EditText
+            android:id="@+id/friendMail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="casual"
+
+            android:paddingLeft="10px"
+            android:paddingRight="20px" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/idAddFriend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20pt"
+        android:layout_marginRight="20pt"
+        android:background="#CCD5DE"
+        android:fontFamily="casual"
+        android:text="Add"
+        android:textAllCaps="false"
+        android:textColor="#B58DAF"
+        android:textStyle="bold" />
+
+</LinearLayout>

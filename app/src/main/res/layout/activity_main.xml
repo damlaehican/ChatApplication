@@ -15,7 +15,7 @@
         android:layout_height="300dp"
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
-        android:layout_marginStart="91dp"
+        android:layout_marginStart="70dp"
         android:orientation="vertical">
 
         <android.support.design.widget.TextInputLayout
@@ -26,7 +26,10 @@
                 android:id="@+id/et_userMail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter Your Username" />
+                android:fontFamily="casual"
+                android:hint="Enter Your Username"
+                android:textAlignment="viewStart"
+                android:textColorLink="@color/colorAccent" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -37,14 +40,17 @@
                 android:id="@+id/et_userPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="casual"
                 android:hint="Enter Your Password"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:textAlignment="viewStart" />
         </android.support.design.widget.TextInputLayout>
 
         <Button
             android:id="@+id/btn_signIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="casual"
             android:hint="Sign In"
             android:onClick="signIn"
             android:textStyle="bold" />
@@ -53,6 +59,7 @@
             android:id="@+id/btn_createUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="casual"
             android:hint="Create New Account"
             android:onClick="createUser"
             android:textStyle="bold" />
