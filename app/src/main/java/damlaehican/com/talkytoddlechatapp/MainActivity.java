@@ -51,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    //giriş metodu
     public void signIn(View view){
 
         mAuth.signInWithEmailAndPassword(et_userName.getText().toString(), et_password.getText().toString())

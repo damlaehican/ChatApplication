@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FEF1F7"
+    android:backgroundTint="#E4EDFF"
     tools:context=".CreateUserActivity"
     tools:layout_editor_absoluteY="25dp">
 
@@ -41,7 +43,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_newPassword" />
-
 
 
     <EditText

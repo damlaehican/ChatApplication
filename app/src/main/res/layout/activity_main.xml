@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E4EDFF"
     android:paddingLeft="16dp"
     android:paddingTop="16dp"
     android:paddingRight="16dp"
@@ -73,5 +74,15 @@
 
 
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="178dp"
+        android:layout_height="118dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        app:srcCompat="@drawable/damla" />
+
 
 </RelativeLayout>

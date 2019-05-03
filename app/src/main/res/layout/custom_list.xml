@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageViewFriend"
+        android:layout_width="100px"
+        android:layout_height="100px"
+        android:layout_weight="1"
+        android:visibility="visible"
+        app:srcCompat="@drawable/common_full_open_on_phone" />
+
+    <TextView
+        android:id="@+id/textViewFriendMail"
+        android:layout_width="600px"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40px"
+        android:visibility="visible" />
+
+</LinearLayout>

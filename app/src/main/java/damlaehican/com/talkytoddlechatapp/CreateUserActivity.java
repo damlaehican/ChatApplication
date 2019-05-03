@@ -32,6 +32,7 @@ public class CreateUserActivity extends AppCompatActivity {
         nameText = findViewById(R.id.et_username_surname);
     }
 
+    //Yeni kullanıcı oluşturma
     public void signUp(View view){
 
         mAuth.createUserWithEmailAndPassword(emailText.getText().toString(), passwordText.getText().toString())

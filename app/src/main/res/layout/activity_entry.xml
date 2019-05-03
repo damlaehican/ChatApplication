@@ -5,16 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
+    android:background="#E4EDFF"
     tools:context=".EntryActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        />
+        android:theme="?attr/actionBarTheme" />
 
     <ListView
         android:id="@+id/listView"
@@ -23,6 +25,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="51dp" />
+        android:layout_marginTop="51dp"
+        android:background="#E4EDFF" />
 
 </RelativeLayout>

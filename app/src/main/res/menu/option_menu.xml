@@ -12,6 +12,8 @@
     <item android:id="@+id/logOut"
         android:title="Log Out"></item>
 
+    <item android:id="@+id/addProfileImage"
+        android:title="Add Profile Image"></item>
 
 
 
