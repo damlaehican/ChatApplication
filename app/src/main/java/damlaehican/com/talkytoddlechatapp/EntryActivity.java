@@ -176,9 +176,9 @@ public class EntryActivity extends AppCompatActivity {
                                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
 
-                                            for(DataSnapshot postSnapshot : dataSnapshot.getChildren()){
+                                            for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
 
-                                                Map<String, String> mapAddFriend = (Map<String ,String>) postSnapshot.getValue();
+                                                Map<String, String> mapAddFriend = (Map<String, String>) postSnapshot.getValue();
 
 
                                                 DatabaseReference friendRef = mRef.child(mAuth.getCurrentUser().getUid()).child("friends");
