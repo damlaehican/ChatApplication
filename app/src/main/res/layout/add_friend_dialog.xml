@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E4EDFF"
+    android:background="#dce775"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="casual"
-        android:text="Add Friend"
-        android:textAlignment="center"
-        android:textColor="#B58DAF"
-        android:textSize="15pt"
-        android:textStyle="bold" />
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
@@ -22,31 +14,34 @@
         android:layout_margin="10px"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:hint="Enter mail"
-
-        >
+        android:hint="Email Adresini Giriniz">
 
         <EditText
             android:id="@+id/friendMail"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fontFamily="casual"
+            android:layout_width="370dp"
+            android:layout_height="40dp"
+            android:background="@drawable/edittext_design"
 
+            android:fontFamily="serif"
+            android:hint="Email Adresini Giriniz"
             android:paddingLeft="10px"
-            android:paddingRight="20px" />
+
+            android:paddingRight="20px"
+            android:textColor="@color/colorAccent" />
     </android.support.design.widget.TextInputLayout>
 
     <Button
         android:id="@+id/idAddFriend"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginLeft="20pt"
         android:layout_marginRight="20pt"
-        android:background="@drawable/common_google_signin_btn_icon_light_normal_background"
-        android:fontFamily="casual"
-        android:text="Add"
+        android:background="@drawable/button_tasarim"
+        android:fontFamily="serif"
+        android:text="EKLE"
+        android:textAlignment="center"
         android:textAllCaps="false"
-        android:textColor="#B58DAF"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
         android:textStyle="bold" />
 
 </LinearLayout>

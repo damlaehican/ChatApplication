@@ -22,6 +22,9 @@
         <activity android:name=".EntryActivity" />
         <activity android:name=".SuggestActivity1" />
         <activity android:name=".CreateUserActivity" />
+        <activity android:name=".ChatActivity"></activity>
+
+
     </application>
 
 </manifest>

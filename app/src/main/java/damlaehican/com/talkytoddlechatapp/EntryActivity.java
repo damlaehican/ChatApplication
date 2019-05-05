@@ -1,5 +1,6 @@
 package damlaehican.com.talkytoddlechatapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
@@ -12,11 +13,15 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -33,11 +38,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import static damlaehican.com.talkytoddlechatapp.MainActivity.mAuth;
+
 public class EntryActivity extends AppCompatActivity {
 
-    private FirebaseAuth mAuth;
-    private FirebaseAuth.AuthStateListener mAuthListener;
-    private StorageReference mStorageRef;
+
+    public static FirebaseAuth.AuthStateListener mAuthListener;
+    public static StorageReference mStorageRef;
 
     DatabaseReference mRef, userRef, mailRef, imageRef;
 
@@ -45,6 +52,12 @@ public class EntryActivity extends AppCompatActivity {
     private final static int GALERY_INDEX = 2;
 
     String friendMail;
+
+    private ListAdapter adapter;
+    private ArrayList<Adapter> mListAdapter;
+
+    private ListView listView;
+
     @Override
     protected void onStart() {
         mAuth.addAuthStateListener(mAuthListener);
@@ -62,6 +75,11 @@ public class EntryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_entry);
 
+
+        Fresco.initialize(this);
+
+        mListAdapter = new ArrayList<>();
+
         Toolbar myToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(myToolbar);
 
@@ -76,7 +94,7 @@ public class EntryActivity extends AppCompatActivity {
 
                 FirebaseUser user = firebaseAuth.getCurrentUser();
 
-                if(user == null){
+                if (user == null) {
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
                 }
@@ -85,28 +103,32 @@ public class EntryActivity extends AppCompatActivity {
         };
 
         //Veri okuma işlemi (arkadaşlar)
-       mailRef = FirebaseDatabase.getInstance().getReference("allUsers").child(mAuth.getCurrentUser().getUid());
+        mailRef = FirebaseDatabase.getInstance().getReference("allUsers").child(mAuth.getCurrentUser().getUid());
         mailRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 DataSnapshot dsFriends = dataSnapshot.child("friends");
-                for(DataSnapshot friend : dsFriends.getChildren()){
+                for (DataSnapshot friend : dsFriends.getChildren()) {
 
                     String friendNames = friend.getValue(String.class);
-                    System.out.println("ARKADAS : " +friendNames);
+                    System.out.println("ARKADAS : " + friendNames);
 
                     mRef.orderByChild("mail").equalTo(friendNames)
                             .addValueEventListener(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                    for(DataSnapshot dsFriendDetail : dataSnapshot.getChildren()){
+                                    for (DataSnapshot dsFriendDetail : dataSnapshot.getChildren()) {
 
-                                        Map<String, String> mapAddFriendDetail = (Map<String, String>)dsFriendDetail.getValue();
+                                        Map<String, String> mapAddFriendDetail = (Map<String, String>) dsFriendDetail.getValue();
 
-                                        System.out.println("PHOTO URL : " +mapAddFriendDetail.get("userImage"));
+                                        String friendImageLink = mapAddFriendDetail.get("userImage");
+
+
+                                        mListAdapter.add(new Adapter(mapAddFriendDetail.get("mail"), friendImageLink));
+                                        listView.invalidateViews();
+
                                     }
-
 
 
                                 }
@@ -128,16 +150,24 @@ public class EntryActivity extends AppCompatActivity {
             }
         });
 
+        adapter = new ListAdapter(getApplicationContext(), mListAdapter);
+        listView = findViewById(R.id.listViewFriend);
+        listView.setAdapter(adapter);
+        listView.invalidateViews();
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+                TextView twFriendMail = view.findViewById(R.id.textViewFriendMail);
 
+                Intent intent = new Intent(getApplicationContext(), ChatActivity.class);
+                intent.putExtra("kullaniciMail", twFriendMail.getText().toString());
+                startActivity(intent);
+            }
+        });
 
     }
-        /////ÖNEMLİ
-
-
-
-
         @Override
         public boolean onCreateOptionsMenu (Menu menu){
 
@@ -203,7 +233,6 @@ public class EntryActivity extends AppCompatActivity {
 
                 mAuth.signOut();
 
-
             } else if (item.getItemId() == R.id.addProfileImage) {
 
                 Intent intent = new Intent(Intent.ACTION_PICK);
@@ -214,6 +243,12 @@ public class EntryActivity extends AppCompatActivity {
                 mailRef = userRef.child("mail");
                 mailRef.setValue(mAuth.getCurrentUser().getEmail());
                 imageRef = userRef.child("userImage");
+
+
+            }else if(item.getItemId() == R.id.suggestToFriend){
+
+                Intent intent = new Intent(getApplicationContext(), SuggestActivity1.class);
+                startActivity(intent);
             }
 
             return super.onOptionsItemSelected(item);
@@ -226,6 +261,9 @@ public class EntryActivity extends AppCompatActivity {
             if (requestCode == GALERY_INDEX && resultCode == RESULT_OK) {
 
                 Uri uri = data.getData();
+
+
+
 
                 StorageReference path = mStorageRef.child("userImages").child(mAuth.getCurrentUser().getEmail());
                 path.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {

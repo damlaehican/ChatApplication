@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/settings"
-        android:title="Settings"></item>
-
-
+    <item android:id="@+id/addProfileImage"
+        android:title="Profil Resmi Ekle"></item>
 
     <item android:id="@+id/addFriend"
-        android:title="Add Friend"></item>
+        android:title="Arkadaş Ekle"></item>
+
+
+    <item android:id="@+id/settings"
+        android:title="Ayarlar"></item>
 
     <item android:id="@+id/logOut"
-        android:title="Log Out"></item>
+        android:title="Çıkış Yap"></item>
 
-    <item android:id="@+id/addProfileImage"
-        android:title="Add Profile Image"></item>
 
+    <item android:id="@+id/suggestToFriend"
+        android:title="Arkadaşına Öner"></item>
 
 
 </menu>

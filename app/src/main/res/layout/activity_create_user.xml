@@ -1,71 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:background="#FEF1F7"
-    android:backgroundTint="#E4EDFF"
+    android:background="#ff9d3f"
+    android:backgroundTint="@color/colorPrimaryDark"
+    android:orientation="vertical"
     tools:context=".CreateUserActivity"
     tools:layout_editor_absoluteY="25dp">
 
     <EditText
         android:id="@+id/et_username_surname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="148dp"
+        android:layout_width="197dp"
+        android:layout_height="33dp"
+        android:layout_alignStart="@+id/et_newPassword"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="-3dp"
+        android:layout_marginTop="167dp"
+        android:background="@drawable/edittext_design"
         android:ems="10"
-        android:hint="First Name / Surname"
+        android:hint="Ad/Soyad"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:paddingLeft="10dp"
+        tools:layout_editor_absoluteX="94dp"
+        tools:layout_editor_absoluteY="166dp" />
+
 
     <EditText
         android:id="@+id/et_newPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_width="197dp"
+        android:layout_height="33dp"
+        android:layout_alignStart="@+id/et_newUserMail"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="253dp"
+        android:background="@drawable/edittext_design"
+        android:drawableLeft="@drawable/lock"
+        android:drawablePadding="10dp"
         android:ems="10"
-        android:hint="New Password"
+        android:hint="Parola"
         android:inputType="textPassword"
-        app:layout_constraintStart_toStartOf="@+id/et_newUserMail"
-        app:layout_constraintTop_toBottomOf="@+id/et_newUserMail" />
+        android:paddingLeft="10dp"
+        tools:layout_editor_absoluteX="94dp"
+        tools:layout_editor_absoluteY="264dp" />
+
 
     <Button
         android:id="@+id/btn_signUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="42dp"
+        android:layout_width="133dp"
+        android:layout_height="33dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="245dp"
+        android:layout_marginEnd="245dp"
+        android:layout_marginBottom="350dp"
+        android:background="@drawable/button_tasarim"
         android:onClick="signUp"
-        android:text="Sign Up"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_newPassword" />
+        android:text="Kayıt Ol"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="126dp"
+        tools:layout_editor_absoluteY="319dp" />
 
 
     <EditText
         android:id="@+id/et_newUserMail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
+        android:layout_width="197dp"
+        android:layout_height="33dp"
+
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="87dp"
+        android:layout_marginTop="211dp"
+        android:background="@drawable/edittext_design"
+        android:drawableLeft="@drawable/mail24"
+        android:drawablePadding="10dp"
         android:ems="10"
-        android:hint="Email Adress"
+        android:hint="Email Adresi"
         android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="@+id/et_username_surname"
-        app:layout_constraintTop_toBottomOf="@+id/et_username_surname" />
+        android:paddingLeft="10dp"
+        tools:layout_editor_absoluteX="94dp"
+        tools:layout_editor_absoluteY="219dp" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="1dp"
-        android:layout_height="1dp"
-        android:text="By clicking Sign Up, you agree to our Terms, Data Policy and Cookie Policy. "
-        android:textColor="@android:color/darker_gray"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>
