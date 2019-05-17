@@ -1,9 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ChatActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/frMail"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="12pt"
+        android:text="ChatApp"
+        android:layout_marginTop="5dp"
+        />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/lisViewMessages"
+        android:layout_above="@+id/layout1"
+        android:layout_below="@+id/frMail"></ListView>
+
+    <ImageView
+        android:id="@+id/imgSend"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/sendicon" />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/imgSend"
+        android:id="@+id/layout1">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Mesajınızı Giriniz"
+            android:id="@+id/msgIcerik"
+            />
+
+
+
+    </android.support.design.widget.TextInputLayout>
+</RelativeLayout>

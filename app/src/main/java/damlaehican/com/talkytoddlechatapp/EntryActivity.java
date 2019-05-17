@@ -245,11 +245,9 @@ public class EntryActivity extends AppCompatActivity {
                 imageRef = userRef.child("userImage");
 
 
-            }else if(item.getItemId() == R.id.suggestToFriend){
-
-                Intent intent = new Intent(getApplicationContext(), SuggestActivity1.class);
-                startActivity(intent);
             }
+
+
 
             return super.onOptionsItemSelected(item);
         }

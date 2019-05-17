@@ -15,8 +15,7 @@
         android:title="Çıkış Yap"></item>
 
 
-    <item android:id="@+id/suggestToFriend"
-        android:title="Arkadaşına Öner"></item>
+
 
 
 </menu>

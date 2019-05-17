@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ff9d3f"
+    android:background="@drawable/background"
+    android:clickable="true"
     android:orientation="horizontal"
     android:paddingLeft="16dp"
     android:paddingTop="16dp"
@@ -72,8 +73,8 @@
             android:fontFamily="serif"
             android:hint="Giriş Yap"
             android:onClick="signIn"
-            android:textStyle="bold"
-            />
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:textStyle="bold" />
 
         <com.google.android.gms.common.SignInButton
             android:id="@+id/btn_googleSignIn"
@@ -111,15 +112,6 @@
 
 
     </LinearLayout>
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="153dp"
-        android:layout_height="92dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="33dp"
-        app:srcCompat="@drawable/damla" />
 
 
 </RelativeLayout>
