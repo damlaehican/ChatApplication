@@ -1,47 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:orientation="vertical">
+    android:orientation="horizontal"
+    tools:layout_editor_absoluteY="25dp">
 
 
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="411dp"
         android:layout_height="wrap_content"
-        android:layout_margin="10px"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:hint="Email Adresini Giriniz">
+        android:text="Arkadaş Ekle"
+        android:textAlignment="center"
+        android:textSize="15pt" />
 
-        <EditText
-            android:id="@+id/friendMail"
-            android:layout_width="370dp"
-            android:layout_height="40dp"
-            android:background="@drawable/edittext_design"
-
-            android:fontFamily="serif"
-            android:hint="Email Adresini Giriniz"
-            android:paddingLeft="10px"
-
-            android:paddingRight="20px"
-            android:textColor="@color/colorAccent" />
-    </android.support.design.widget.TextInputLayout>
+    <EditText
+        android:id="@+id/friendMail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="51dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name" />
 
     <Button
-        android:id="@+id/idAddFriend"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginLeft="20pt"
-        android:layout_marginRight="20pt"
-        android:background="@drawable/button_tasarim"
-        android:fontFamily="serif"
-        android:text="EKLE"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="@color/common_google_signin_btn_text_dark_focused"
-        android:textStyle="bold" />
+        android:id="@+id/btnAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="109dp"
+        android:text="Button" />
 
-</LinearLayout>
+
+</RelativeLayout>

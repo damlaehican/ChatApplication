@@ -6,46 +6,66 @@
     android:layout_height="match_parent"
     tools:context=".ChatActivity">
 
-    <TextView
-        android:id="@+id/frMail"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:textColor="@color/common_google_signin_btn_text_dark_focused"
-        android:textSize="12pt"
-        android:text="ChatApp"
-        android:layout_marginTop="5dp"
-        />
-
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/lisViewMessages"
-        android:layout_above="@+id/layout1"
-        android:layout_below="@+id/frMail"></ListView>
-
-    <ImageView
-        android:id="@+id/imgSend"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:src="@drawable/sendicon" />
-
-    <android.support.design.widget.TextInputLayout
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/imgSend"
-        android:id="@+id/layout1">
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
 
-        <EditText
+        />
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/relativeMesajGonder"
+        android:orientation="vertical"
+        >
+
+        <ListView
+            android:padding="8dp"
+
+            android:id="@+id/listView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Mesajınızı Giriniz"
-            android:id="@+id/msgIcerik"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="0dp"
+            android:stackFromBottom="true"
+            android:transcriptMode="alwaysScroll"
+            ></ListView>
+
+    </LinearLayout>
+    
+    
+    <RelativeLayout
+        android:id="@+id/relativeMesajGonder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+
+        <EditText
+            android:id="@+id/editMesaj"
+            android:layout_width="319dp"
+            android:layout_height="43dp"
+            android:layout_marginRight="4dp"
+            android:layout_toLeftOf="@+id/btnGonder"
+            android:background="@drawable/edittext_design"
+            android:hint="Bir mesaj yaz"
+
+
             />
+        
+        <Button
+            android:layout_alignParentRight="true"
+            android:text="Gonder"
+            android:id="@+id/btnGonder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
+    </RelativeLayout>
 
-
-    </android.support.design.widget.TextInputLayout>
 </RelativeLayout>

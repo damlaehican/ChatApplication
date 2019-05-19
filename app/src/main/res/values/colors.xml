@@ -3,4 +3,5 @@
     <color name="colorPrimary">#e869e6</color>
     <color name="colorPrimaryDark"></color>
     <color name="colorAccent">#565453</color>
+    <color name="colorProfileBorder">#ff0000</color>
 </resources>
